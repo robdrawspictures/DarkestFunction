@@ -3,15 +3,13 @@ package player_management;
 abstract public class PlayerCharacter {
 
     private String name;
-    private int HP;
     private int AP;
     private int gold;
 
-    public PlayerCharacter(String name, int HP, int AP, int gold) {
+    public PlayerCharacter(String name) {
         this.name = name;
-        this.HP = HP;
-        this.AP = AP;
-        this.gold = gold;
+        this.AP = 10;
+        this.gold = 0;
     }
 
     public String getName() {
@@ -20,14 +18,6 @@ abstract public class PlayerCharacter {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getHP() {
-        return HP;
-    }
-
-    public void setHP(int HP) {
-        this.HP = HP;
     }
 
     public int getAP() {
@@ -44,5 +34,13 @@ abstract public class PlayerCharacter {
 
     public void setGold(int gold) {
         this.gold = gold;
+    }
+
+    public void reduceAP(int cost){
+        this.AP -= cost;
+    }
+
+    public void addGold(int loot){
+        this.gold += loot;
     }
 }

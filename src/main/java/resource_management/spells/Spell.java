@@ -5,8 +5,32 @@ public class Spell {
     private int ATK;
     private SpellType type;
 
-    public Spell(int ATK, SpellType type) {
-        this.ATK = ATK;
+    public Spell(SpellType type) {
+        this.ATK = type.getATK();
         this.type = type;
+    }
+
+    public String getName(){
+        return this.type.toString();
+    }
+
+    public int getATK() {
+        return ATK;
+    }
+
+    public void setATK(int ATK) {
+        this.ATK = ATK;
+    }
+
+    public SpellType getType() {
+        return type;
+    }
+
+    public void setType(SpellType type) {
+        this.type = type;
+    }
+
+    public String getAlignment(){
+        return type.getAlignment();
     }
 }

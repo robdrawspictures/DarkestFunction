@@ -1,4 +1,4 @@
-package player_management.warrior;
+package behaviours;
 
 import beast_management.enemy.Enemy;
 import resource_management.weapons.Weapon;

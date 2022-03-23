@@ -18,13 +18,15 @@ public class WarriorTest {
     private Enemy enemy3;
     private Weapon weapon;
     private Weapon weapon2;
+    private Weapon weapon3;
 
     @Before
     public void before(){
         weapon = new Weapon(WeaponType.DRAGONSLAYER);
         weapon2 = new Weapon(WeaponType.DAGGER);
-        warrior = new Warrior("Guts", 100, 10, 0, WarriorType.BARBARIAN, weapon);
-        warrior2 = new Warrior("Casca", 100, 10, 0, WarriorType.ROGUE, weapon2);
+        weapon3 = new Weapon(WeaponType.SPEAR);
+        warrior = new Warrior("Guts", WarriorType.BARBARIAN, weapon);
+        warrior2 = new Warrior("Casca", WarriorType.ROGUE, weapon2);
         enemy = new Enemy(BeastType.ONI, 100, 5, 10);
         enemy2 = new Enemy(BeastType.ONI, 100, 5, 10);
         enemy3 = new Enemy(BeastType.SLIME, 5, 1, 5);
@@ -58,5 +60,11 @@ public class WarriorTest {
         warrior.attack(enemy);
         assertEquals(73, enemy.getHP());
         assertEquals(1, warrior.getAP());
+    }
+
+    @Test
+    public void cantWieldCertainWeapons(){
+        assertEquals("You do not have the stats to wield this weapon.", warrior2.equipWeapon(weapon));
+        assertEquals("Weapon equipped.", warrior2.equipWeapon(weapon3));
     }
 }

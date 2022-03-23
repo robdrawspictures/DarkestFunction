@@ -13,8 +13,8 @@ public class Healer extends PlayerCharacter implements ICast, IUse {
     private ArrayList<Item> items;
     private ArrayList<Spell> spells;
 
-    public Healer(String name, int HP, int AP, int gold, int INT, ArrayList<Item> items, ArrayList<Spell> spells) {
-        super(name, HP, AP, gold);
+    public Healer(String name, int INT, ArrayList<Item> items, ArrayList<Spell> spells) {
+        super(name);
         this.INT = INT;
         this.items = items;
         this.spells = spells;
