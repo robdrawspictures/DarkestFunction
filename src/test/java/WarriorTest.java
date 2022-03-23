@@ -67,4 +67,12 @@ public class WarriorTest {
         assertEquals("You do not have the stats to wield this weapon.", warrior2.equipWeapon(weapon));
         assertEquals("Weapon equipped.", warrior2.equipWeapon(weapon3));
     }
+
+    @Test
+    public void canLevelUp(){
+        warrior.levelUp();
+        assertEquals(105, warrior.getMAXHP());
+        assertEquals(11, warrior.getSTR());
+        assertEquals(3,warrior.getDEF());
+    }
 }

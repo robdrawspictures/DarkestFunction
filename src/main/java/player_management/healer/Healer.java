@@ -14,6 +14,7 @@ public class Healer extends PlayerCharacter implements ICast, IUse{
     private int MAXHP;
     private int HP;
     private int INT;
+    private int MaxCapacity;
     private HealerType type;
     private ArrayList<Item> items;
     private ArrayList<Spell> spells;
@@ -23,6 +24,7 @@ public class Healer extends PlayerCharacter implements ICast, IUse{
         this.MAXHP = 50;
         this.HP = 50;
         this.INT = 1;
+        this.MaxCapacity = 4;
         this.type = type;
         this.items = items;
         this.spells = spells;
@@ -33,7 +35,9 @@ public class Healer extends PlayerCharacter implements ICast, IUse{
     }
 
     public void addItem(Item item){
-        this.items.add(item);
+        if(itemCount() < this.MaxCapacity) {
+            this.items.add(item);
+        }
     }
 
     public void removeItem(Item item){
@@ -83,5 +87,12 @@ public class Healer extends PlayerCharacter implements ICast, IUse{
 
     public void heal(int amount){
         this.HP += amount;
+    }
+
+    public void levelUp(){
+        this.MAXHP += 5;
+        this.HP += 5;
+        this.INT += 1;
+        this.MaxCapacity += 1;
     }
 }

@@ -80,4 +80,15 @@ public class HealerTest {
         healer.useItem(potion, ally);
         assertEquals(70, ally.getHP());
     }
+
+    @Test
+    public void cannotExceedMaxItem(){
+        healer.addItem(potion);
+        healer.addItem(potion);
+        healer.addItem(potion);
+        assertEquals(4, healer.itemCount());
+        healer.addItem(potion);
+        assertEquals(4, healer.itemCount());
+
+    }
 }

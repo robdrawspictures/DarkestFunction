@@ -2,10 +2,11 @@ package player_management.warrior;
 
 import beast_management.enemy.Enemy;
 import behaviours.IAttack;
+import behaviours.ILevel;
 import player_management.PlayerCharacter;
 import resource_management.weapons.Weapon;
 
-public class Warrior extends PlayerCharacter implements IAttack {
+public class Warrior extends PlayerCharacter implements IAttack, ILevel {
 
 
     private int MAXHP;
@@ -23,6 +24,30 @@ public class Warrior extends PlayerCharacter implements IAttack {
         this.STR = type.getSTR() + weapon.getATK();
         this.DEF = type.getDEF();
         this.weapon = weapon;
+    }
+
+    public int getMAXHP() {
+        return MAXHP;
+    }
+
+    public int getHP() {
+        return HP;
+    }
+
+    public WarriorType getType() {
+        return type;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public int getSTR() {
+        return STR;
+    }
+
+    public int getDEF() {
+        return DEF;
     }
 
     public String equipWeapon(Weapon newWeapon){
@@ -49,6 +74,13 @@ public class Warrior extends PlayerCharacter implements IAttack {
     }
     public void heal(int amount){
         this.HP += amount;
+    }
+
+    public void levelUp(){
+        this.MAXHP += 5;
+        this.HP += 5;
+        this.STR += 2;
+        this.DEF += 1;
     }
 
 }
