@@ -28,6 +28,7 @@ public class MageTest {
     private Spell fireball;
     private Spell death;
     private Spell cure;
+    private Spell meteor;
     private ArrayList<Spell> spells;
     private ArrayList<Spell> spells2;
 
@@ -36,6 +37,7 @@ public class MageTest {
         fireball = new Spell(SpellType.FIREBALL);
         death = new Spell(SpellType.DEATH);
         cure = new Spell(SpellType.CURE);
+        meteor = new Spell(SpellType.METEOR);
         spells = new ArrayList<>();
         spells.add(cure);
         spells.add(fireball);
@@ -61,6 +63,16 @@ public class MageTest {
     }
 
     @Test
+    public void cantCastWithoutMana(){
+        darkElf.learnSpell(death);
+        darkElf.cast("death", enemy);
+        darkElf.cast("death", enemy);
+        assertEquals(90, enemy.getHP());
+        darkElf.cast("fireball", enemy);
+        assertEquals(90, enemy.getHP());
+    }
+
+    @Test
     public void cantLearnCertainSpells(){
         mage1.learnSpell(death);
         assertEquals(2, mage1.spellCount());
@@ -69,5 +81,12 @@ public class MageTest {
         assertEquals(1, darkElf.spellCount());
         darkElf.learnSpell(death);
         assertEquals(2, darkElf.spellCount());
+    }
+
+    @Test
+    public void canCollectGoldOnDeath(){
+        darkElf.learnSpell(meteor);
+        darkElf.cast("Meteor", enemy);
+        assertEquals(10, darkElf.getGold());
     }
 }

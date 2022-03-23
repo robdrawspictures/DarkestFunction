@@ -3,10 +3,12 @@ package resource_management.spells;
 public class Spell {
 
     private int ATK;
+    private int MP;
     private SpellType type;
 
     public Spell(SpellType type) {
         this.ATK = type.getATK();
+        this.MP = type.getMP();
         this.type = type;
     }
 
@@ -28,6 +30,10 @@ public class Spell {
 
     public void setType(SpellType type) {
         this.type = type;
+    }
+
+    public int getMP(){
+        return this.MP;
     }
 
     public String getAlignment(){

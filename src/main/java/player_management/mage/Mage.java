@@ -43,8 +43,14 @@ public class Mage extends PlayerCharacter implements ICast {
 
     public void cast(String spell, Enemy enemy){
         Spell activeSpell = getSpellByName(spell);
-        int DMG = activeSpell.getATK();
-        enemy.takeDMG(DMG);
+        if(activeSpell.getMP() <= getAP()) {
+            int DMG = activeSpell.getATK();
+            enemy.takeDMG(DMG);
+            reduceAP(activeSpell.getMP());
+            if (enemy.getHP() <= 0) {
+                addGold(enemy.getGOLD());
+            }
+        }
     }
 
     public void learnSpell(Spell spell){
