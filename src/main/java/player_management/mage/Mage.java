@@ -2,6 +2,7 @@ package player_management.mage;
 
 import beast_management.Beast;
 import beast_management.enemy.Enemy;
+import behaviours.ICast;
 import player_management.PlayerCharacter;
 import resource_management.spells.Spell;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
 
-public class Mage extends PlayerCharacter {
+public class Mage extends PlayerCharacter implements ICast {
 
     private int HP;
     private int INT;

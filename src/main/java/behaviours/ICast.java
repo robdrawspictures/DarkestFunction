@@ -1,6 +1,8 @@
 package behaviours;
 
+import beast_management.enemy.Enemy;
+
 public interface ICast {
 
-    public void castSpell();
+    public void cast(String spell, Enemy enemy);
 }
