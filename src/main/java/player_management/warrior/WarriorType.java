@@ -13,4 +13,12 @@ public enum WarriorType {
         this.STR = STR;
         this.DEF = DEF;
     }
+
+    public int getSTR(){
+        return this.STR;
+    }
+
+    public int getDEF(){
+        return this.DEF;
+    }
 }

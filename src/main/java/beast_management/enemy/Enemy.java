@@ -15,4 +15,32 @@ public class Enemy extends Beast {
         this.STR = STR;
         this.GOLD = GOLD;
     }
+
+    public int getHP() {
+        return HP;
+    }
+
+    public void setHP(int HP) {
+        this.HP = HP;
+    }
+
+    public int getSTR() {
+        return STR;
+    }
+
+    public int getGOLD() {
+        return GOLD;
+    }
+
+    public void setSTR(int STR) {
+        this.STR = STR;
+    }
+
+    public void setGOLD(int GOLD) {
+        this.GOLD = GOLD;
+    }
+
+    public void takeDMG(int DMG){
+        this.HP -= DMG;
+    }
 }

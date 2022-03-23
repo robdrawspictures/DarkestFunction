@@ -19,4 +19,12 @@ public enum WeaponType {
         this.weight = weight;
         this.ATK = ATK;
     }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getATK() {
+        return ATK;
+    }
 }
