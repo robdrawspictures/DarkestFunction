@@ -2,6 +2,7 @@ package beast_management.enemy;
 
 import beast_management.Beast;
 import beast_management.BeastType;
+import player_management.PlayerCharacter;
 
 public class Enemy extends Beast {
 
@@ -42,5 +43,9 @@ public class Enemy extends Beast {
 
     public void takeDMG(int DMG){
         this.HP -= DMG;
+    }
+
+    public void attack(PlayerCharacter target){
+        target.takeDMG(getSTR());
     }
 }

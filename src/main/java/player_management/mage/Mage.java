@@ -12,6 +12,7 @@ import java.util.Objects;
 
 public class Mage extends PlayerCharacter implements ICast {
 
+    private int MAXHP;
     private int HP;
     private int INT;
     private MageType type;
@@ -20,11 +21,24 @@ public class Mage extends PlayerCharacter implements ICast {
 
     public Mage(String name, MageType type, ArrayList<Spell> spells, Beast mount) {
         super(name);
+        this.MAXHP = 75;
         this.HP = 75;
         this.INT = 1;
         this.type = type;
         this.spells = spells;
         this.mount = mount;
+    }
+
+    public int getMAXHP() {
+        return MAXHP;
+    }
+
+    public int getHP() {
+        return HP;
+    }
+
+    public int getINT() {
+        return INT;
     }
 
     public int spellCount(){
@@ -56,6 +70,18 @@ public class Mage extends PlayerCharacter implements ICast {
     public void learnSpell(Spell spell){
         if(spell.getAlignment().equals(type.getAlignment()) || spell.getAlignment().equals("N")){
             spells.add(spell);
+        }
+    }
+
+    public void takeDMG(int DMG){
+        this.HP -= DMG;
+    }
+
+    public void heal(int amount){
+        if((this.HP + amount) > this.MAXHP){
+            this.HP = this.MAXHP;
+        } else {
+            this.HP += amount;
         }
     }
 }

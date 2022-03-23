@@ -8,6 +8,7 @@ import resource_management.weapons.Weapon;
 public class Warrior extends PlayerCharacter implements IAttack {
 
 
+    private int MAXHP;
     private int HP;
     private WarriorType type;
     private Weapon weapon;
@@ -16,7 +17,8 @@ public class Warrior extends PlayerCharacter implements IAttack {
 
     public Warrior(String name, WarriorType type, Weapon weapon) {
         super(name);
-        this.HP = HP;
+        this.MAXHP = 100;
+        this.HP = 100;
         this.type = type;
         this.STR = type.getSTR() + weapon.getATK();
         this.DEF = type.getDEF();
@@ -40,6 +42,13 @@ public class Warrior extends PlayerCharacter implements IAttack {
                 addGold(enemy.getGOLD());
             }
         }
+    }
+
+    public void takeDMG(int DMG){
+        this.HP -= DMG;
+    }
+    public void heal(int amount){
+        this.HP += amount;
     }
 
 }

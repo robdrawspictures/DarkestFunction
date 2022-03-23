@@ -1,5 +1,7 @@
 package player_management;
 
+import beast_management.enemy.Enemy;
+
 abstract public class PlayerCharacter {
 
     private String name;
@@ -43,4 +45,8 @@ abstract public class PlayerCharacter {
     public void addGold(int loot){
         this.gold += loot;
     }
+
+    abstract public void takeDMG(int DMG);
+
+    abstract public void heal(int amount);
 }
