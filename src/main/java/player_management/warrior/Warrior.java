@@ -34,6 +34,10 @@ public class Warrior extends PlayerCharacter implements IAttack, ILevel {
         return HP;
     }
 
+    public void setHP(int newHP){
+        this.HP = newHP;
+    }
+
     public WarriorType getType() {
         return type;
     }

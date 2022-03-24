@@ -7,4 +7,8 @@ public class Beast {
     public Beast(BeastType type) {
         this.type = type;
     }
+
+    public String getType() {
+        return type.toString();
+    }
 }
